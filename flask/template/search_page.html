@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Canada Tourism</title>
+	</head>
+	<body>
+		<form action="/search" method="POST">
+			<input type="text" name="search" placeholder="Search Books">
+			<button type = "submit">Submit</button>
+		</form>
+		<form action="/note" method="POST">
+			<input type="text" name="note" placeholder="Note">
+			<button type = "submit">Submit</button>
+		</form>
+
+		<form action="/retrieval" method="POST">
+			<button type = "submit">Note ret</button>
+		</form>
+		{% for i in data %}
+
+		<p>Title: {{i.title}}</p>
+		<p>Author: {{i.author}}</p>
+
+		{%endfor%}
+
+		{% for i in newdata %}
+
+		<p>Author: {{i.author}}</p>
+		<p>Note: {{i.Note}}</p>
+
+		{%endfor%}
+	</body>
+</html>
