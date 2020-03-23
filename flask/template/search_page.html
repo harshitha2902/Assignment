@@ -1,32 +1,57 @@
 <html>
 	<head>
-		<title>Canada Tourism</title>
+		<title>Books Search</title>
+		<style>
+			form.styling button{
+				background-color: #4CAF50;
+ 				border: none;
+  				color: white;
+  				padding: 8px 8px;
+  				text-decoration: none;
+  				margin: 1px 1px;
+  				cursor: pointer;
+			}
+			form.styling input[type=text]{
+ 				border: 1px solid grey;
+  				color: black;
+  				padding: 8px 8px;
+  				text-decoration: none;
+  				margin: 1px 1px;
+			}
+			.content{
+				text-align: center;
+			}			
+		</style>
 	</head>
 	<body>
-		<form action="/search" method="POST">
+		<div class = "content">
+		<h1>Gutenberg Books Search</h1>
+		<form class = "styling" action="/search" method="POST">
 			<input type="text" name="search" placeholder="Search Books">
 			<button type = "submit">Submit</button>
 		</form>
-		<form action="/note" method="POST">
+		<form class = "styling" action="/note" method="POST">
 			<input type="text" name="note" placeholder="Note">
 			<button type = "submit">Submit</button>
 		</form>
 
-		<form action="/retrieval" method="POST">
-			<button type = "submit">Note ret</button>
+		<form class = "styling" action="/retrieval" method="POST">
+			<button type = "submit">Note retrieval</button>
 		</form>
+	
 		{% for i in data %}
-
-		<p>Title: {{i.title}}</p>
-		<p>Author: {{i.author}}</p>
-
-		{%endfor%}
+    		{% if loop.index == 1 %}
+        		<p>Author: {{i.author}}</p>
+    		{% endif %}
+    		<p>Title: {{i.title}}</p>
+		{% endfor %}
 
 		{% for i in newdata %}
-
-		<p>Author: {{i.author}}</p>
-		<p>Note: {{i.Note}}</p>
-
-		{%endfor%}
+    		{% if loop.index == 1 %}
+        		<p>Author: {{i.author}}</p>
+    		{% endif %}
+    		<p>Note: {{i.Note}}</p>
+		{% endfor %}
+		</div>
 	</body>
 </html>
